@@ -1,0 +1,59 @@
+<div class="component__inner accordionwithpopup__inner">
+
+  {{> component this}}
+
+  <div class="component__widget accordionwithpopup__widget">
+
+    {{#each _items}}
+    <div class="accordionwithpopup__item{{#if _graphic.src}} has-image{{/if}}{{#if _classes}} {{_classes}}{{/if}}" data-index="{{_index}}">
+
+      <button id="{{../_id}}-{{@index}}-accordionwithpopup-button" class="accordionwithpopup__item-btn js-toggle-item is-closed{{#if _isVisited}} is-visited{{/if}}" aria-expanded="false">
+        <div class="accordionwithpopup__item-btn-inner">
+
+          <div class="accordionwithpopup__item-icon">
+            <div class="icon"></div>
+          </div>
+
+          <div class="accordionwithpopup__item-title">
+            <div class="accordionwithpopup__item-title-inner">
+              {{{title}}}
+            </div>
+          </div>
+
+        </div>
+      </button>
+
+      <div class="accordionwithpopup__item-content" role="region" aria-labelledby="{{../_id}}-{{@index}}-accordionwithpopup-button">
+        <div class="accordionwithpopup__item-content-inner">
+
+          {{#if body}}
+          <div class="accordionwithpopup__item-body">
+            <div class="accordionwithpopup__item-body-inner">
+              {{{compile body}}}
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if _graphic.src}}
+          <div class="accordionwithpopup__item-image-container{{#if _graphic.attribution}} has-attribution{{/if}}">
+            <img class="accordionwithpopup__item-image" src="{{_graphic.src}}" {{#if _graphic.alt}}aria-label="{{_graphic.alt}}"{{else}}aria-hidden="true"{{/if}}>
+
+            {{#if _graphic.attribution}}
+            <div class="component__attribution accordionwithpopup__attribution">
+              <div class="component__attribution-inner accordionwithpopup__attribution-inner">
+                {{{_graphic.attribution}}}
+              </div>
+            </div>
+            {{/if}}
+
+          </div>
+          {{/if}}
+
+        </div>
+      </div>
+
+    </div>
+    {{/each}}
+
+  </div>
+</div>

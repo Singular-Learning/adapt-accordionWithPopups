@@ -1,0 +1,155 @@
+// STYLES FROM VANILLA THEME
+.accordionwithpopup {
+  &__item {
+    margin-bottom: @item-margin / 2;
+  }
+
+  &__item-btn {
+    position: relative;
+    padding: @item-padding;
+    padding-right: @icon-size + (@item-padding * 2);
+    text-align: left;
+    background-color: @item-color;
+    color: @item-color-inverted;
+    border-radius: 5px;
+
+    .no-touch &:not(.is-selected):hover {
+      background-color: @item-color-hover;
+      color: @item-color-inverted-hover;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+
+    .dir-rtl & {
+      padding-right: @item-padding;
+      padding-left: @icon-size + (@item-padding * 2);
+      text-align: right;
+    }
+  }
+
+  &__item-btn.is-visited {
+    background-color: @visited;
+    color: @visited-inverted;
+  }
+
+  &__item-btn.is-selected {
+    background-color: @item-color-selected;
+    color: @item-color-inverted-selected;
+  }
+
+  &__item-icon {
+    position: absolute;
+    top: 50%;
+    right: @item-padding;
+    .transform(translateY(-50%));
+
+    .dir-rtl & {
+      right: inherit;
+      left: @item-padding;
+    }
+  }
+
+  &__item-content {
+    padding: @item-padding;
+    background-color: @item-color;
+    color: @item-color-inverted;
+    border-radius: 5px;
+  }
+
+  &__item-image-container {
+    .img-zoom();
+  }
+}
+
+// COMPONENT
+.accordionwithpopup {
+  &__item-btn {
+    width: 100%;
+  }
+
+  &__item-content {
+    display: none;
+  }
+
+  // --------------------------------------------------
+  // Item icon states
+  // --------------------------------------------------
+  &__item-btn.is-closed .icon {
+    .icon-plus;
+  }
+
+  &__item-btn.is-open .icon {
+    .icon-minus;
+  }
+  // --------------------------------------------------
+
+  // --------------------------------------------------
+  // Set up margin between body and image elements
+  // Turn off margin when image is left / right aligned on desktop
+  // --------------------------------------------------
+  &__item.has-image {
+    .accordionwithpopup__item-body {
+      margin-bottom: @item-padding / 2;
+    }
+
+    @media (min-width: @device-width-medium) {
+      &.align-image-left,
+      &.align-image-right {
+        .accordionwithpopup__item-body {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  // --------------------------------------------------
+
+  // --------------------------------------------------
+  // Predefined image alignment classes
+  // Aligns image either left or right on desktop
+  // Defaults to underneath on smaller screens
+  // --------------------------------------------------
+  @media (min-width: @device-width-medium) {
+    &__item.align-image-left,
+    &__item.align-image-right {
+      .accordionwithpopup__item-content-inner {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .accordionwithpopup__item-body,
+      .accordionwithpopup__item-image-container {
+        width: 50%;
+      }
+    }
+
+    &__item.align-image-left {
+      .accordionwithpopup__item-content-inner {
+        flex-direction: row-reverse;
+      }
+
+      .accordionwithpopup__item-image-container {
+        margin-right: @item-padding / 2;
+      }
+
+      .dir-rtl & .accordionwithpopup__item-image-container {
+        margin-right: inherit;
+        margin-left: @item-padding / 2;
+      }
+    }
+
+    &__item.align-image-right {
+      .accordionwithpopup__item-content-inner {
+        flex-direction: row;
+      }
+
+      .accordionwithpopup__item-image-container {
+        margin-left: @item-padding / 2;
+      }
+
+      .dir-rtl & .accordionwithpopup__item-image-container {
+        margin-left: inherit;
+        margin-right: @item-padding / 2;
+      }
+    }
+  }
+  // --------------------------------------------------
+}
