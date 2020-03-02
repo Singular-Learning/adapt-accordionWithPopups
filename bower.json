@@ -1,12 +1,12 @@
 {
   "name": "adapt-accordionwithpopup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "framework": ">=5",
   "homepage": "https://github.com/Singular-Learning/adapt-accordionWithPopups",
   "repository": "git://github.com/Singular-Learning/adapt-accordionWithPopups.git",
   "issues": "https://github.com/Singular-Learning/adapt-accordionWithPopups/issues/",
-  "component" : "accordionwithpopup",
-  "displayName" : "Accordion With Popups",
+  "component": "accordionwithpopup",
+  "displayName": "Accordion With Popups",
   "description": "An accordion component that displays clickable titles, which reveal display text where you can link words to open a popup",
   "main": "/js/adapt-accordionWithPopup.js",
   "keywords": [
