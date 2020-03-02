@@ -5,7 +5,7 @@
 
 ## [1.0.0] - 2020-02-27
 
-The initial version of the Adapt framework.
+The initial version of the Adapt plugin.
 
 ### Added
 - Everything!
