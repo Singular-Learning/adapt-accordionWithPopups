@@ -4,7 +4,7 @@
 
 **Accordion With Popups**' purpose is to display a vertically stacked list of headings. Each heading is associated with a collapsible content panel. Clicking a heading toggles the visibility of its content panel. Content panels may contain text with words that can be linked to open an integrated popup and/or an image.
 
-<img src="https://gitlab.com/SingularLearning/documentation/-/raw/master/adapt_learning/plugins/images/adapt-accordionWithPopups.gif" alt="Accordion With Popup in action">
+<img src="https://raw.githubusercontent.com/Singular-Learning/documentation/master/adapt_learning/plugins/images/adapt-accordionWithPopups.gif" alt="Accordion With Popup in action">
 
 To use this component in the Adapt authoring tool, once you have written the text in the item body field, you have to select the text that you want to open a popup. With the selected text, click in the "link" button. Then you have to set the link type as "link to anchor in the text". Afterwards you have to click in the "advanced" tab and set an unique id. The last step is to set this unique id in the field "id" of the popup.
 You can add as many popups as you want, but keep in mind that the id must be unique throughout the course.
