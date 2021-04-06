@@ -1,3 +1,90 @@
+// COMPONENT
+.accordionwithpopup {
+  overflow-anchor: none;
+
+  &__item-btn {
+    width: 100%;
+  }
+
+  &__item-content {
+    display: none;
+  }
+
+  // Item icon states
+  // --------------------------------------------------
+  &__item-btn.is-closed .icon {
+    .icon-plus;
+  }
+
+  &__item-btn.is-open .icon {
+    .icon-minus;
+  }
+
+  // Set up margin between body and image elements
+  // Turn off margin when image is left / right aligned on desktop
+  // --------------------------------------------------
+  &__item.has-image &__item-body {
+    margin-bottom: @item-padding;
+  }
+
+  @media (min-width: @device-width-medium) {
+    &__item.has-image.align-image-left &__item-body,
+    &__item.has-image.align-image-right &__item-body {
+      margin-bottom: 0;
+    }
+  }
+
+  // Predefined image alignment classes
+  // Aligns image either left or right on desktop
+  // Defaults to underneath on smaller screens
+  // --------------------------------------------------
+  @media (min-width: @device-width-medium) {
+    &__item.align-image-left &__item-content-inner,
+    &__item.align-image-right &__item-content-inner {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__item.align-image-left &__item-body,
+    &__item.align-image-right &__item-body {
+      width: 60%;
+    }
+
+    &__item.align-image-left &__item-image-container,
+    &__item.align-image-right &__item-image-container {
+      width: 40%;
+    }
+
+    &__item.align-image-left &__item-content-inner {
+      flex-direction: row-reverse;
+    }
+
+    &__item.align-image-left &__item-image-container {
+      margin-right: @item-padding;
+
+      .dir-rtl & {
+        margin-right: inherit;
+        margin-left: @item-padding;
+      }
+    }
+
+    &__item.align-image-right &__item-content-inner {
+      flex-direction: row;
+    }
+
+    &__item.align-image-right &__item-image-container {
+      margin-left: @item-padding;
+
+      .dir-rtl & {
+        margin-left: inherit;
+        margin-right: @item-padding;
+      }
+    }
+  }
+}
+
+
+// THEME
 .accordionwithpopup {
   &__item {
     margin-bottom: @item-margin / 2;
@@ -49,106 +136,14 @@
 
   &__item-content {
     padding: @item-padding;
-    background-color: @item-color;
-    color: @item-color-inverted;
     border-radius: @item-border-radius;
+  }
+
+  &__item-body a {
+    .link-text;
   }
 
   &__item-image-container {
     .img-zoom();
   }
-}
-
-// COMPONENT
-.accordionwithpopup {
-  &__item-btn {
-    width: 100%;
-  }
-
-  &__item-content {
-    display: none;
-  }
-
-  // --------------------------------------------------
-  // Item icon states
-  // --------------------------------------------------
-  &__item-btn.is-closed .icon {
-    .icon-plus;
-  }
-
-  &__item-btn.is-open .icon {
-    .icon-minus;
-  }
-  // --------------------------------------------------
-
-  // --------------------------------------------------
-  // Set up margin between body and image elements
-  // Turn off margin when image is left / right aligned on desktop
-  // --------------------------------------------------
-  &__item.has-image {
-    .accordionwithpopup__item-body {
-      margin-bottom: @item-padding / 2;
-    }
-
-    @media (min-width: @device-width-medium) {
-      &.align-image-left,
-      &.align-image-right {
-        .accordionwithpopup__item-body {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-  // --------------------------------------------------
-
-  // --------------------------------------------------
-  // Predefined image alignment classes
-  // Aligns image either left or right on desktop
-  // Defaults to underneath on smaller screens
-  // --------------------------------------------------
-  @media (min-width: @device-width-medium) {
-    &__item.align-image-left,
-    &__item.align-image-right {
-      .accordionwithpopup__item-content-inner {
-        display: flex;
-        align-items: flex-start;
-      }
-
-      .accordionwithpopup__item-body,
-      .accordionwithpopup__item-image-container {
-        width: 50%;
-      }
-    }
-
-    &__item.align-image-left {
-      .accordionwithpopup__item-content-inner {
-        flex-direction: row-reverse;
-      }
-
-      .accordionwithpopup__item-image-container {
-        margin-right: @item-padding / 2;
-      }
-
-      .dir-rtl & .accordionwithpopup__item-image-container {
-        margin-right: inherit;
-        margin-left: @item-padding / 2;
-      }
-    }
-
-    &__item.align-image-right {
-      .accordionwithpopup__item-content-inner {
-        flex-direction: row;
-      }
-
-      .accordionwithpopup__item-image-container {
-        margin-left: @item-padding / 2;
-      }
-
-      .dir-rtl & .accordionwithpopup__item-image-container {
-        margin-left: inherit;
-        margin-right: @item-padding / 2;
-      }
-    }
-  }
-  // --------------------------------------------------
 }
